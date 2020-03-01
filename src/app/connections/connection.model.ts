@@ -1,14 +1,12 @@
 export class Connection {
 
     public id: number;
-    public mark: string;
-    public model: string;
-    public type: string;
-  
-    constructor(id: number, mark: string, model: string, type: string) {
+    public employeeId: number;
+    public deviceId: number;
+    
+    constructor(id: number, employeeId: number, deviceId: number) {
       this.id = id;
-      this.mark = mark;
-      this.model = model;
-      this.type = type;
+      this.employeeId = employeeId;
+      this.deviceId = deviceId;
     }
   }

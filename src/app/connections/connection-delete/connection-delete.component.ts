@@ -29,10 +29,9 @@ export class ConnectionDeleteComponent implements OnInit {
 
   onDeleteConnection() {
     const editId: number = this.editIdRef.nativeElement.value;
-    const editMark = this.editMarkRef.nativeElement.value;
-    const editModel = this.editModelRef.nativeElement.value;
-    const editType = this.editTypeRef.nativeElement.value;
-    const editedConnection2 = new Connection(editId, editMark, editModel, editType);
+    const editMark: number = this.editMarkRef.nativeElement.value;
+    const editModel: number = this.editModelRef.nativeElement.value;
+    const editedConnection2 = new Connection(editId, editMark, editModel);
 
     this.connectionDeleted.emit(editedConnection2);
   }

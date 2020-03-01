@@ -1,15 +1,22 @@
 <div style="margin-top: 100px;">
     <h1>Editing.</h1>
     <form>
-        <input disabled class="form-control" type="text" placeholder="Id" #editId value={{con.id}} style="margin-top: 20px;"><br>
-        <input required class="form-control" pInputText pKeyFilter="alpha" type="text" placeholder="Mark" #editMark value="{{con.mark}}"><br>
-        <input required class="form-control" pInputText pKeyFilter="alphanum" type="text" placeholder="Model" #editModel value={{con.model}}><br>
-        <input required class="form-control" pInputText pKeyFilter="alpha" type="text" placeholder="Type" #editType value="{{con.type}}"><br>
+        <input disabled class="form-control" type="text" placeholder="Id" #editId value={{con.id}}
+            style="margin-top: 20px;"><br>
+
+        <p-dropdown #idEmployee [options]="employeeItems" placeholder="Select employee." optionLabel="value"
+            [showClear]="false">
+        </p-dropdown>
+        <br><br>
+
+        <p-dropdown #idDevice [options]="deviceItems" placeholder="Select device." optionLabel="value"
+            [showClear]="false">
+        </p-dropdown>
+        <br><br>
+
     </form>
 
     <button class="btn btn-success" type="submit" (click)="onEditConnection()">Confirm</button>
     <button class="btn btn-danger" (click)="changeEditState()">Cancel</button>
 
 </div>
-
-

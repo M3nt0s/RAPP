@@ -7,7 +7,8 @@ import { TabMenuModule } from 'primeng/tabmenu';
 import { AccordionModule } from 'primeng/accordion';
 import { CalendarModule } from 'primeng/calendar';
 import { KeyFilterModule } from 'primeng/keyfilter';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DropdownModule } from 'primeng/dropdown';
 
 
 import { AppComponent } from './app.component';
@@ -39,6 +40,7 @@ import { ConnectionListComponent } from './connections/connection-list/connectio
 import { ConnectionItemComponent } from './connections/connection-list/connection-item/connection-item.component';
 import { ConnectionManagerComponent } from './connections/connection-manager/connection-manager.component';
 import { ConnectionToolbarComponent } from './connections/connection-toolbar/connection-toolbar.component';
+import { ViewerComponent } from './viewer/viewer.component';
 
 
 @NgModule({
@@ -71,7 +73,8 @@ import { ConnectionToolbarComponent } from './connections/connection-toolbar/con
     ConnectionListComponent,
     ConnectionItemComponent,
     ConnectionManagerComponent,
-    ConnectionToolbarComponent
+    ConnectionToolbarComponent,
+    ViewerComponent
   ],
   imports: [
     BrowserModule,
@@ -80,7 +83,9 @@ import { ConnectionToolbarComponent } from './connections/connection-toolbar/con
     AccordionModule,
     CalendarModule,
     FormsModule,
-    KeyFilterModule
+    KeyFilterModule,
+    BrowserAnimationsModule,
+    DropdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]

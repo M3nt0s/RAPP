@@ -19,7 +19,8 @@ export class LeftbarComponent implements OnInit {
     this.items = [
       { label: 'Employees', routerLink: 'Employees' },
       { label: 'Devices', routerLink: 'Devices' },
-      { label: 'Connections', routerLink: 'Connections' }
+      { label: 'Connections', routerLink: 'Connections' },
+      { label: 'Viewer', routerLink: 'Viewer' }
     ];
     this.activeItem = this.items[0];
   }

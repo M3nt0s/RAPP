@@ -1,15 +1,18 @@
 <div style="margin-top: 100px;">
-    <h1>Adding.</h1>
-    <form>
-      <input disabled class="form-control" type="text" placeholder="Id" style="margin-top: 20px;" #idInput value="{{autoincrement}}"><br>
-      <input required class="form-control" pInputText pKeyFilter="alpha" type="text" placeholder="Mark" #markInput><br>
-      <input required class="form-control" pInputText pKeyFilter="alphanum" type="text" placeholder="Model" #modelInput><br>
-      <input required class="form-control" pInputText pKeyFilter="alpha" type="text" placeholder="Type" #typeInput><br>
-  
-      <button  class="btn btn-success" type="reset" value="Add" (click)="onAddConnection()">Add</button>
-      <button class="btn btn-danger" (click)="changeAddState()">Cancel</button>
-  
-    </form>
-  
-  </div>
-  
+  <h1>Adding.</h1>
+  <form>
+    <input disabled class="form-control" type="text" placeholder="Id" style="margin-top: 20px;"
+      value="{{ autoincrement }}" /><br />
+
+    <p-dropdown #idEmployee [options]="employeeItems" placeholder="Select employee." optionLabel="value" [showClear]="false">
+    </p-dropdown>
+    <br><br>
+
+    <p-dropdown #idDevice [options]="deviceItems" placeholder="Select device." optionLabel="value" [showClear]="false">
+    </p-dropdown>
+    <br><br>
+
+    <button class="btn btn-success" type="reset" value="Add" (click)="onAddConnection()">Add</button>
+    <button class="btn btn-danger" (click)="changeAddState()">Cancel</button>
+  </form>
+</div>

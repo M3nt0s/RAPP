@@ -1,4 +1,5 @@
-export class Employee {
+
+export class Employee{
 
   public id: number;
   public name: string;

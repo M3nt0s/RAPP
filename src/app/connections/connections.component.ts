@@ -1,7 +1,5 @@
 import { Component, OnInit, Output, Input } from "@angular/core";
 import { Connection } from "./connection.model";
-import { Device } from "../devices/device.model";
-
 
 @Component({
   selector: "app-connections",
@@ -10,23 +8,47 @@ import { Device } from "../devices/device.model";
 })
 export class ConnectionsComponent implements OnInit {
   connections: Connection[];
-  devices: Device[];
   SelectedConnection: Connection;
   autoincrement: number;
+  increment: number;
 
   constructor() {
     this.autoincrement = 1;
     this.connections = [];
-    // this.addConnection(new Connection(this.autoincrement, 'HP', '3550', 'Printer'));
-    // this.addConnection(new Connection(this.autoincrement, 'Acer', 'Nitro N211453', 'Monitor'));
+    this.increment = 1;
   }
 
   ngOnInit(): void { 
+    this.storageFunction();
+  }
 
+  storageSave() {
+    localStorage.setItem("connections", JSON.stringify(this.connections));
+  }
+
+  storageFunction() {
+    var data = JSON.parse(localStorage.getItem("connections"));
+
+    // if (data === null) {
+      // this.addConnection(new Connection(this.autoincrement, 'HP', '3550', 'Printer'));
+    // this.addConnection(new Connection(this.autoincrement, 'Acer', 'Nitro N211453', 'Monitor'));
+    // }
+
+    if (!(data === null)) {
+      for (var i = 0; i < data.length; i++) {
+
+        if ((i) === (data.length - 1)) {
+          this.autoincrement = (data[data.length - 1].id) + this.increment;
+        }
+        this.connections.push(data[i]);
+      }
+    }
   }
 
   addConnection(connection: Connection) {
     this.connections.push(connection);
+    this.storageSave();
+    location.reload();
     this.autoincrement++;
   }
 
@@ -36,6 +58,7 @@ export class ConnectionsComponent implements OnInit {
     });
     console.log(connection.id);
     this.connections[index] = connection;
+    this.storageSave();
   }
 
   deleteConnection(connection: Connection) {
@@ -46,5 +69,7 @@ export class ConnectionsComponent implements OnInit {
     if (indexx > -1) {
       this.connections.splice(indexx, 1);
     }
+    this.storageSave();
+    location.reload();
   }
 }

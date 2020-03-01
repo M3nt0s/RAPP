@@ -1,6 +1,5 @@
 import { Component, OnInit, Output, Input } from "@angular/core";
 import { Device } from "./device.model";
-import { IfStmt } from '@angular/compiler';
 
 @Component({
   selector: "app-devices",
@@ -11,10 +10,12 @@ export class DevicesComponent implements OnInit {
   devices: Device[];
   SelectedDevice: Device;
   autoincrement: number;
+  increment: number;
 
   constructor() {
     this.autoincrement = 1;
     this.devices = [];
+    this.increment = 1;
   }
 
   ngOnInit(): void {
@@ -37,7 +38,7 @@ export class DevicesComponent implements OnInit {
       for (var i = 0; i < data.length; i++) {
 
         if ((i) === (data.length - 1)) {
-          this.autoincrement = data[data.length - 1].id+1;
+          this.autoincrement = (data[data.length - 1].id) + this.increment;
         }
         this.devices.push(data[i]);
       }
