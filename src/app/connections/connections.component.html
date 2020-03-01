@@ -1,0 +1,19 @@
+<div class="row">
+    <div align="center" class="col-sm-4" style="padding:30px;">
+      <app-connection-list [connections]="connections" (ConnectionWasSelected)="SelectedConnection = $event"></app-connection-list>
+    </div>
+  
+  
+    <div align="center" class="col-sm-4" style="padding:30px;">
+      <app-connection-manager [con]="SelectedConnection" (connectionAdded)="addConnection($event)" (connectionWasEdited)="editConnection($event)" (connectioneWasDeleted)="deleteConnection($event)" [autoincrement]="autoincrement"></app-connection-manager>
+    </div>
+  
+  
+    <div align="center" class="col-sm-4" style="padding:30px">
+      <app-connection-detail *ngIf="SelectedConnection; else infoText" [con]='SelectedConnection'></app-connection-detail>
+      <ng-template #infoText>
+        <h1>Select to display properties.</h1>
+      </ng-template>
+    </div>
+  </div>
+  

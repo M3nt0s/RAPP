@@ -1,0 +1,19 @@
+<div class="row">
+  <div align="center" class="col-sm-4" style="padding:30px;">
+    <app-device-list [devices]="devices" (DeviceWasSelected)="SelectedDevice = $event"></app-device-list>
+  </div>
+
+
+  <div align="center" class="col-sm-4" style="padding:30px;">
+    <app-device-manager [dev]="SelectedDevice" (deviceAdded)="addDevice($event)" (deviceWasEdited)="editDevice($event)"
+      (deviceWasDeleted)="deleteDevice($event)" [autoincrement]="autoincrement"></app-device-manager>
+  </div>
+
+
+  <div align="center" class="col-sm-4" style="padding:30px">
+    <app-device-detail *ngIf="SelectedDevice; else infoText" [dev]='SelectedDevice'></app-device-detail>
+    <ng-template #infoText>
+      <h1>Select to display properties.</h1>
+    </ng-template>
+  </div>
+</div>

@@ -1,0 +1,6 @@
+<div>
+    <h1>{{title}}</h1>
+    <app-device-item *ngFor="let devitem of devices" [dev]='devitem' (DeviceSelected)="selectedItem(devitem)">
+
+    </app-device-item>
+</div>

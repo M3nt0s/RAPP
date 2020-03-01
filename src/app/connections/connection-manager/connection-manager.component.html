@@ -1,0 +1,13 @@
+<div class="row" style="margin-left:40px;">
+    <div class="col-sm-6" align="left">
+      <h1>Manager</h1>
+  
+    </div>
+  
+    <app-connection-toolbar (onToolbarDelete)="toolbarDelete()" (onToolbarEdit)="toolbarEdit()"
+      (onToolbarAdd)="toolbarAdd()"></app-connection-toolbar>
+    <app-connection-add [autoincrement]="autoincrement" (addStateChanged)="toolbarAdd()" (connectionAdded)="onConnectionAdd($event)" *ngIf="isAdding">
+    </app-connection-add>
+    <app-connection-edit [(con)]="con" *ngIf="isEditing" (editStateChanged)="toolbarEdit()" (connectionEdited)="editedConnection($event)"></app-connection-edit>
+    <app-connection-delete [(con)]="con" *ngIf="isDeleting" (deleteStateChanged)="toolbarDelete()" (connectionDeleted)="deletedConnection($event)"></app-connection-delete>
+  

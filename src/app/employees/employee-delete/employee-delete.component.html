@@ -1,0 +1,25 @@
+<div style="margin-top: 100px;">
+  <h1>Deleting.</h1>
+  <h2>Select employee and confirm.</h2>
+
+  <form>
+    <input disabled class="form-control" type="text" placeholder="Id" style="margin-top: 20px;" value={{emp.id}} #editId2><br>
+    <input disabled class="form-control" type="text" placeholder="Name" #editName2 value="{{emp.name}}"><br>
+    <input disabled class="form-control" type="text" placeholder="Surname" #editSurname2 value={{emp.surname}}><br>
+    <input disabled class="form-control" type="text" placeholder="Age" #editAge2  value="{{emp.age}}"><br>
+</form>
+
+    <button class="btn btn-success" (click)="onDeleteEmployee()">Delete</button>
+    <button class="btn btn-danger" (click)="changeDeleteState()">Cancel</button>
+
+
+</div>
+
+
+
+
+
+
+
+
+

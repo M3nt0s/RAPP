@@ -1,0 +1,14 @@
+<div style="margin-top: 100px;">
+  <h1>Adding.</h1>
+  <form>
+    <input disabled class="form-control" type="text" placeholder="Id" style="margin-top: 20px;" #idInput value="{{autoincrement}}"><br>
+    <input required class="form-control" pInputText pKeyFilter="alpha" type="text" placeholder="Name" #nameInput><br>
+    <input required class="form-control" pInputText pKeyFilter="alpha" type="text" placeholder="Surname" #surInput><br>
+    <input required class="form-control" pInputText pKeyFilter="int" type="text" placeholder="Age" #ageInput><br>
+
+    <button class="btn btn-success" type="reset" value="Add" (click)="onAddEmployee()">Add</button>
+    <button class="btn btn-danger" (click)="changeAddState()">Cancel</button>
+
+  </form>
+
+</div>

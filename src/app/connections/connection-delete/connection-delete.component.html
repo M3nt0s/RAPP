@@ -1,0 +1,26 @@
+<div style="margin-top: 100px;">
+    <h1>Deleting.</h1>
+    <h2>Select connection and confirm.</h2>
+  
+    <form>
+      <input disabled class="form-control" type="text" placeholder="Id" #editId value={{con.id}} style="margin-top: 20px;"><br>
+      <input disabled class="form-control" type="text" placeholder="Mark" #editMark value="{{con.mark}}"><br>
+      <input disabled class="form-control" type="text" placeholder="Model" #editModel value={{con.model}}><br>
+      <input disabled class="form-control" type="text" placeholder="Type" #editType  value="{{con.type}}"><br>
+  </form>
+  
+      <button class="btn btn-success" (click)="onDeleteConnection()">Delete</button>
+      <button class="btn btn-danger" (click)="changeDeleteState()">Cancel</button>
+  
+  
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

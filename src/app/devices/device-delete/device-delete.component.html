@@ -1,0 +1,26 @@
+<div style="margin-top: 100px;">
+    <h1>Deleting.</h1>
+    <h2>Select device and confirm.</h2>
+  
+    <form>
+      <input disabled class="form-control" type="text" placeholder="Id" #editId value={{dev.id}} style="margin-top: 20px;"><br>
+      <input disabled class="form-control" type="text" placeholder="Mark" #editMark value="{{dev.mark}}"><br>
+      <input disabled class="form-control" type="text" placeholder="Model" #editModel value={{dev.model}}><br>
+      <input disabled class="form-control" type="text" placeholder="Type" #editType  value="{{dev.type}}"><br>
+  </form>
+  
+      <button class="btn btn-success" (click)="onDeleteDevice()">Delete</button>
+      <button class="btn btn-danger" (click)="changeDeleteState()">Cancel</button>
+  
+  
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

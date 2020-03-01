@@ -1,0 +1,20 @@
+<div class="row">
+  <div align="center" class="col-sm-4" style="padding:30px;">
+    <app-employee-list [employees]="employees" (EmployeeWasSelected)="SelectedEmployee = $event"></app-employee-list>
+  </div>
+
+
+  <div align="center" class="col-sm-4" style="padding:30px;">
+    <app-employee-manager [emp]="SelectedEmployee" (employeeAdded)="addEmployee($event)"
+      (employeeWasEdited)="editEmployee($event)" (employeeWasDeleted)="deleteEmployee($event)"
+      [autoincrement]="autoincrement"></app-employee-manager>
+  </div>
+
+
+  <div align="center" class="col-sm-4" style="padding:30px">
+    <app-employee-detail *ngIf="SelectedEmployee; else infoText" [emp]='SelectedEmployee'></app-employee-detail>
+    <ng-template #infoText>
+      <h1>Select to display properties.</h1>
+    </ng-template>
+  </div>
+</div>

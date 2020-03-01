@@ -1,0 +1,15 @@
+<div class="row" style="margin-left:40px;">
+  <div class="col-sm-6" align="left">
+    <h1>Manager</h1>
+
+  </div>
+
+  <app-device-toolbar (onToolbarDelete)="toolbarDelete()" (onToolbarEdit)="toolbarEdit()" (onToolbarAdd)="toolbarAdd()">
+  </app-device-toolbar>
+  <app-device-add [autoincrement]="autoincrement" (addStateChanged)="toolbarAdd()" (deviceAdded)="onDeviceAdd($event)"
+    *ngIf="isAdding">
+  </app-device-add>
+  <app-device-edit [(dev)]="dev" *ngIf="isEditing" (editStateChanged)="toolbarEdit()"
+    (deviceEdited)="editedDevice($event)"></app-device-edit>
+  <app-device-delete [(dev)]="dev" *ngIf="isDeleting" (deleteStateChanged)="toolbarDelete()"
+    (deviceDeleted)="deletedDevice($event)"></app-device-delete>

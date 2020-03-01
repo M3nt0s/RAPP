@@ -1,0 +1,15 @@
+<div class="row" style="margin-left:40px;">
+  <div class="col-sm-6" align="left">
+    <h1>Manager</h1>
+
+  </div>
+
+  <app-employee-toolbar (onToolbarDelete)="toolbarDelete()" (onToolbarEdit)="toolbarEdit()"
+    (onToolbarAdd)="toolbarAdd()"></app-employee-toolbar>
+  <app-employee-add [autoincrement]="autoincrement" (addStateChanged)="toolbarAdd()"
+    (employAdded)="onEmployeeAdd($event)" *ngIf="isAdding">
+  </app-employee-add>
+  <app-employee-edit [(emp)]="emp" *ngIf="isEditing" (editStateChanged)="toolbarEdit()"
+    (employeeEdited)="editedEmployee($event)"></app-employee-edit>
+  <app-employee-delete [(emp)]="emp" *ngIf="isDeleting" (deleteStateChanged)="toolbarDelete()"
+    (employeeDeleted)="deletedEmployee($event)"></app-employee-delete>

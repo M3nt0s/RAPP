@@ -1,0 +1,15 @@
+<div style="margin-top: 100px;">
+    <h1>Editing.</h1>
+    <form>
+        <input disabled class="form-control" type="text" placeholder="Id" #editId value={{dev.id}} style="margin-top: 20px;"><br>
+        <input required class="form-control" pInputText pKeyFilter="alpha" type="text" placeholder="Mark" #editMark value="{{dev.mark}}"><br>
+        <input required class="form-control" pInputText pKeyFilter="alphanum" type="text" placeholder="Model" #editModel value={{dev.model}}><br>
+        <input required class="form-control" pInputText pKeyFilter="alpha" type="text" placeholder="Type" #editType value="{{dev.type}}"><br>
+    </form>
+
+    <button class="btn btn-success" type="submit" (click)="onEditDevice()">Confirm</button>
+    <button class="btn btn-danger" (click)="changeEditState()">Cancel</button>
+
+</div>
+
+
