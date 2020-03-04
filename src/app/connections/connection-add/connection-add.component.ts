@@ -12,23 +12,23 @@ import { EmployeeItem } from "src/app/employees/employeeselect.model";
   styleUrls: ["./connection-add.component.scss"]
 })
 export class ConnectionAddComponent implements OnInit {
-  SelectedConnection: Connection;
 
   @Input() con: Connection;
   @Input() autoincrement: number;
 
   employees: Employee[];
   devices: Device[];
-
   employeeItems: EmployeeItem[];
   deviceItems: DeviceItem[];
+  SelectedConnection: Connection;
 
   @Output() addStateChanged = new EventEmitter<undefined>();
+  @Output() connectionAdded = new EventEmitter<Connection>();
 
   @ViewChild("idEmployee") emplElement: ElementRef;
   @ViewChild("idDevice") devElement: ElementRef;
-  
-  @Output() connectionAdded = new EventEmitter<Connection>();
+  @ViewChild("conDatee") datElement: Date;
+
 
   constructor() { }
 
@@ -39,7 +39,7 @@ export class ConnectionAddComponent implements OnInit {
     this.employeeItems = this.employees.map(item => {
       return { ...item, value: `${item.name} ${item.surname}` };
     });
-    
+
     this.deviceItems = this.devices.map(item => {
       return { ...item, value: `${item.mark} ${item.model}` };
     });
@@ -48,7 +48,8 @@ export class ConnectionAddComponent implements OnInit {
   onAddConnection() {
     const employee = (<any>this.emplElement).value;
     const device = (<any>this.devElement).value;
-    const newConnection = new Connection(this.autoincrement,employee.id,device.id);
+    const date = (<any>this.datElement).value;
+    const newConnection = new Connection(this.autoincrement, employee.id, device.id, date);
     this.connectionAdded.emit(newConnection);
   }
 

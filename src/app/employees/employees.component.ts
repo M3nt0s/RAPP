@@ -11,12 +11,10 @@ export class EmployeesComponent implements OnInit {
   employees: Employee[];
   SelectedEmployee: Employee;
   autoincrement: number;
-  increment:number;
 
   constructor() {
     this.autoincrement = 1;
     this.employees = [];
-    this.increment = 1;
   }
 
   ngOnInit(): void {
@@ -30,6 +28,9 @@ export class EmployeesComponent implements OnInit {
   storageFunction() {
     var data = JSON.parse(localStorage.getItem("employees"));
 
+    // localStorage.removeItem('employees');
+    // localStorage.clear();
+
     // if (data === null) {
       // this.addEmployee(new Employee(this.autoincrement, 'Dominik', 'Latas', 21));
       // this.addEmployee(new Employee(this.autoincrement, 'Norbert', 'Bankowski', 26));
@@ -39,7 +40,8 @@ export class EmployeesComponent implements OnInit {
       for (var i = 0; i < data.length; i++) {
 
         if ((i) === (data.length - 1)) {
-          this.autoincrement = (data[data.length - 1].id) + this.increment;
+          this.autoincrement = +(data[data.length - 1].id);
+          this.autoincrement++;
         }
         this.employees.push(data[i]);
       }
@@ -50,7 +52,6 @@ export class EmployeesComponent implements OnInit {
   addEmployee(employee: Employee) {
     this.employees.push(employee);
     this.storageSave();
-    location.reload();
     this.autoincrement++;
   }
 
@@ -59,7 +60,6 @@ export class EmployeesComponent implements OnInit {
     const index = this.employees.findIndex(x => {
       return x.id == employee.id;
     });
-    console.log(employee.id);
     this.employees[index] = employee;
     this.storageSave();
   }
@@ -73,6 +73,5 @@ export class EmployeesComponent implements OnInit {
       this.employees.splice(indexx, 1);
     }
     this.storageSave();
-    location.reload();
   }
 }

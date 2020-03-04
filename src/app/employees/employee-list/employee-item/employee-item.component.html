@@ -1,3 +1,11 @@
-<a (click)='SelectedEmployee()' href="#" class="list-group-item" onClick="return false;">
-    <h4>{{ emp.name }} {{ emp.surname }}</h4>
-</a>
+<input class="form-control" type="search" id="myInput" (keyup)="onSearchEmployee(search.value)" placeholder="Search for employees." title="Type in a name" #search>
+    <br>
+
+<div *ngIf="functionIfInclude()">
+<div *ngFor="let empitem of searchItems">
+  <a (click)='SelectedEmployee(empitem)' href="#" class="list-group-item" onClick="return false;">
+    <h4>{{ empitem.name}} {{ empitem.surname }}</h4>
+  </a>
+</div>
+</div>
+

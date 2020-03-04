@@ -34,16 +34,16 @@ export class ConnectionManagerComponent implements OnInit {
   toolbarAdd() {
     this.isAdding = !this.isAdding;
 
-    if(this.isAdding === true && (this.isEditing === true) || this.isDeleting === true){
+    if (this.isAdding === true && (this.isEditing === true) || this.isDeleting === true) {
       this.isEditing = false;
       this.isDeleting = false;
     }
   }
 
   toolbarEdit() {
-     this.isEditing = !this.isEditing;
+    this.isEditing = !this.isEditing;
 
-     if(this.isEditing === true && (this.isEditing === true) || this.isDeleting === true){
+    if (this.isEditing === true && (this.isEditing === true) || this.isDeleting === true) {
       this.isDeleting = false;
       this.isAdding = false;
     }
@@ -52,7 +52,7 @@ export class ConnectionManagerComponent implements OnInit {
   toolbarDelete() {
     this.isDeleting = !this.isDeleting;
 
-    if(this.isDeleting === true && (this.isEditing === true) || this.isAdding === true){
+    if (this.isDeleting === true && (this.isEditing === true) || this.isAdding === true) {
       this.isEditing = false;
       this.isAdding = false;
     }

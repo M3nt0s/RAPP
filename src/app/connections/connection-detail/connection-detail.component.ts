@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Connection } from '../connection.model';
 
+
 @Component({
   selector: 'app-connection-detail',
   templateUrl: './connection-detail.component.html',
@@ -9,10 +10,10 @@ import { Connection } from '../connection.model';
 export class ConnectionDetailComponent implements OnInit {
 
   title = 'Connections Details.';
-
   @Input() con: Connection;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

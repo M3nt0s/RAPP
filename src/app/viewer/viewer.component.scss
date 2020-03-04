@@ -1,0 +1,24 @@
+th,
+td,
+tr {
+  border: 1px solid black;
+  width: 180px;
+  font-size: 18px;
+}
+
+th {
+  font-size: 20px;
+}
+
+
+input{
+  width:50%;
+  font-family: monospace;
+  border-radius: 25px;
+  }
+  
+
+  .center {
+    display: flex;
+    justify-content: center;
+  }

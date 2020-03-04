@@ -12,13 +12,13 @@ export class ConnectionDeleteComponent implements OnInit {
 
   @Input() con: Connection;
   @Output() connectionDeleted = new EventEmitter<Connection>();
-  
+
   @Output() deleteStateChanged = new EventEmitter<undefined>();
 
-  @ViewChild('editId') editIdRef: ElementRef;
-  @ViewChild('editMark') editMarkRef: ElementRef;
-  @ViewChild('editModel') editModelRef: ElementRef;
-  @ViewChild('editType') editTypeRef: ElementRef;
+  @ViewChild('delId') delIdRef: ElementRef;
+  @ViewChild('delMark') delMarkRef: ElementRef;
+  @ViewChild('delModel') delModelRef: ElementRef;
+  @ViewChild('delDate') delDataRef: ElementRef;
 
 
   constructor() { }
@@ -28,15 +28,17 @@ export class ConnectionDeleteComponent implements OnInit {
 
 
   onDeleteConnection() {
-    const editId: number = this.editIdRef.nativeElement.value;
-    const editMark: number = this.editMarkRef.nativeElement.value;
-    const editModel: number = this.editModelRef.nativeElement.value;
-    const editedConnection2 = new Connection(editId, editMark, editModel);
+    const delId: number = this.delIdRef.nativeElement.value;
+    const delMark: number = this.delMarkRef.nativeElement.value;
+    const delModel: number = this.delModelRef.nativeElement.value;
+    const delDate: Date = this.delDataRef.nativeElement.value;
 
-    this.connectionDeleted.emit(editedConnection2);
+    const deleteddConnection2 = new Connection(delId, delMark, delModel, delDate);
+
+    this.connectionDeleted.emit(deleteddConnection2);
   }
 
-  changeDeleteState(){
+  changeDeleteState() {
     this.deleteStateChanged.emit();
   }
 }

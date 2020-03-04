@@ -1,3 +1,6 @@
 <h1>{{title}}</h1>
-<a class="list-group-item">Id: {{con.id}}. <br> Employee ID: {{con.employeeId}}.<br> Device ID: {{con.deviceId}}
+<a class="list-group-item">Id: {{con.id}}. <br> Employee ID: {{con.employeeId}}.<br> Device ID: {{con.deviceId}} <br>
+    Date:
+    <div *ngIf="con.conDate[0] !== null"><br> FROM: {{con.conDate[0] | date:'dd/MM/yyyy'}} AT: {{con.conDate[0] | date:'hh:mm'}} </div>
+    <div *ngIf="con.conDate[1] !== null"><br> TO: {{con.conDate[1] | date:'dd/MM/yyyy'}} AT: {{con.conDate[1] | date:'hh:mm'}}</div>
 </a>

@@ -1,25 +1,18 @@
 <div style="margin-top: 100px;">
     <h1>Deleting.</h1>
     <h2>Select connection and confirm.</h2>
-  
+
     <form>
-      <input disabled class="form-control" type="text" placeholder="Id" #editId value={{con.id}} style="margin-top: 20px;"><br>
-      <input disabled class="form-control" type="text" placeholder="Employee ID" #editMark value="{{con.employeeId}}"><br>
-      <input disabled class="form-control" type="text" placeholder="Device ID" #editModel value={{con.deviceId}}><br>
-  </form>
-  
-      <button class="btn btn-success" (click)="onDeleteConnection()">Delete</button>
-      <button class="btn btn-danger" (click)="changeDeleteState()">Cancel</button>
-  
-  
-  </div>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+        <input disabled class="form-control" type="text" placeholder="Id" #delId value={{con.id}}
+            style="margin-top: 20px;"><br>
+        <input disabled class="form-control" type="text" placeholder="Employee ID" #delMark
+            value="{{con.employeeId}}"><br>
+        <input disabled class="form-control" type="text" placeholder="Device ID" #delModel value={{con.deviceId}}><br>
+        <input disabled class="form-control" type="text" placeholder="Date" #delDate value={{con.conDate}}><br>
+    </form>
+
+    <button class="btn btn-success" (click)="onDeleteConnection()">Delete</button>
+    <button class="btn btn-danger" (click)="changeDeleteState()">Cancel</button>
+
+
+</div>

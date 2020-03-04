@@ -7,22 +7,39 @@ import { EventEmitter } from '@angular/core';
   templateUrl: './employee-item.component.html',
   styleUrls: ['./employee-item.component.scss']
 })
+
 export class EmployeeItemComponent implements OnInit {
 
-  @Input() emp: Employee;
-  @Input() nameSearch: string;
-  @Output() EmployeeSelected = new EventEmitter<void>();
+  @Input() employees: Employee[];
+  @Input() empitem: Employee;
+  @Output() EmployeeSelected = new EventEmitter<Employee>();
+  searchVal: string;
+  searchItems: Employee[];
 
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
+    this.searchVal = '';
+    this.functionIfInclude();
   }
 
-  SelectedEmployee() {
-    this.EmployeeSelected.emit();
+  functionIfInclude() {
+
+    this.searchItems = this.employees.filter(item => item.surname.toLocaleUpperCase().includes(this.searchVal.toLocaleUpperCase()) || item.name.toLocaleUpperCase().includes(this.searchVal.toLocaleUpperCase()));
+    return true;
   }
 
 
+  onSearchEmployee(value: string) {
+    this.searchVal = value;
+  }
 
+  SelectedEmployee(empitem: Employee) {
+    this.EmployeeSelected.emit(empitem);
+  }
 }
+
+
+

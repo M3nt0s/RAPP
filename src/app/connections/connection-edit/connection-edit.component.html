@@ -16,6 +16,11 @@
 
     </form>
 
+
+    <p-calendar #conDatee showSeconds="true" dateFormat="mm/dd/yy" dataType="conDate" inline="true"
+        placeholder="Set data." showTime="true" selectionMode="range" [readonlyInput]="true"></p-calendar>
+    <br><br>
+
     <button class="btn btn-success" type="submit" (click)="onEditConnection()">Confirm</button>
     <button class="btn btn-danger" (click)="changeEditState()">Cancel</button>
 

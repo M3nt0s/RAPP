@@ -23,6 +23,7 @@ export class ConnectionEditComponent implements OnInit {
   @ViewChild("editId") editIdRef: ElementRef;
   @ViewChild("idEmployee") emplElement: ElementRef;
   @ViewChild("idDevice") devElement: ElementRef;
+  @ViewChild("conDatee") datElement: Date;
 
   employees: Employee[];
   devices: Device[];
@@ -50,18 +51,15 @@ export class ConnectionEditComponent implements OnInit {
     const editId: number = this.editIdRef.nativeElement.value;
     const employee = (<any>this.emplElement).value;
     const device = (<any>this.devElement).value;
-    const editedConnection = new Connection(
-      editId,
-      employee.id,
-      device.id
-    );
+    const date = (<any>this.datElement).value;
+    const editedConnection = new Connection(editId, employee.id, device.id, date);
     this.connectionEdited.emit(editedConnection);
   }
 
 
 
-changeEditState(){
+  changeEditState() {
 
-  this.editStateChanged.emit();
-}
+    this.editStateChanged.emit();
+  }
 }

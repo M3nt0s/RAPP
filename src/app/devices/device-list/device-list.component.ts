@@ -11,6 +11,7 @@ import { EventEmitter } from '@angular/core';
 
 export class DeviceListComponent implements OnInit {
   title: string;
+  searchValue: string;
 
   @Output() DeviceWasSelected = new EventEmitter<Device>();
   @Input() devices: Device[];
@@ -19,6 +20,7 @@ export class DeviceListComponent implements OnInit {
 
   constructor() {
     this.title = 'Device List';
+
   }
 
   ngOnInit(): void {
@@ -28,5 +30,10 @@ export class DeviceListComponent implements OnInit {
 
   selectedItem(dev: Device) {
     this.DeviceWasSelected.emit(dev);
+  }
+
+
+  onSearchDevice(value: string) {
+    this.searchValue = value;
   }
 }

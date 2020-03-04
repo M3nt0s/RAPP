@@ -1,5 +1,51 @@
-<p-accordion *ngFor="let con of connection; let dev of device; let emp of employee">
-    <p-accordionTab  header="{{emp.name}} {{emp.surname}}">
-        
-    </p-accordionTab>
-</p-accordion>
+<div class="center">
+  <input class="form-control" type="search" id="myInput" (keyup)="onSearchViewer(search.value)"
+    placeholder="Search for employees..." title="Type in..." #search>
+  <br>
+</div>
+<div *ngIf="functionIfInclude()">
+  <table style="width:100%">
+
+    <p-accordion>
+      <p-accordionTab *ngFor="let emp of searchItems" header="{{emp.id }}. {{emp.name}} {{emp.surname}}">
+        <tr>
+          <th>Connection ID </th>
+          <th> Employee ID </th>
+          <th> Employee name </th>
+          <th> Employee surname </th>
+          <th> Employee age </th>
+          <th> Device ID </th>
+          <th> Device mark </th>
+          <th> Device model </th>
+          <th> Device type </th>
+          <th> Date </th>
+        </tr>
+
+        <div *ngFor="let dev of device">
+          <div *ngFor="let con of connection">
+            <div *ngIf="emp.id==con.employeeId">
+              <div *ngIf="dev.id==con.deviceId">
+                <!-- <div class="list-group-item"> -->
+
+                <tr>
+                  <td>{{con.id}}</td>
+                  <td>{{emp.id}}</td>
+                  <td>{{emp.name}}</td>
+                  <td>{{emp.surname}}</td>
+                  <td>{{emp.age}}</td>
+                  <td>{{dev.id}}</td>
+                  <td>{{dev.mark}}</td>
+                  <td>{{dev.model}}</td>
+                  <td>{{dev.type}}</td>
+                  <td>{{con.conDate[0] | date:'dd/MM/yyyy'}} AT: {{con.conDate[0] | date:'hh:mm'}}
+                    {{con.conDate[1] | date:'dd/MM/yyyy'}} AT: {{con.conDate[1] | date:'hh:mm'}}
+                  </td>
+                </tr>
+              </div>
+            </div>
+          </div>
+        </div>
+      </p-accordionTab>
+    </p-accordion>
+  </table>
+</div>

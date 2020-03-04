@@ -4,7 +4,8 @@
     <input disabled class="form-control" type="text" placeholder="Id" style="margin-top: 20px;"
       value="{{ autoincrement }}" /><br />
 
-    <p-dropdown #idEmployee [options]="employeeItems" placeholder="Select employee." optionLabel="value" [showClear]="false">
+    <p-dropdown #idEmployee [options]="employeeItems" placeholder="Select employee." optionLabel="value"
+      [showClear]="false">
     </p-dropdown>
     <br><br>
 
@@ -12,7 +13,13 @@
     </p-dropdown>
     <br><br>
 
-    <button class="btn btn-success" type="reset" value="Add" (click)="onAddConnection()">Add</button>
-    <button class="btn btn-danger" (click)="changeAddState()">Cancel</button>
   </form>
+
+  <p-calendar required="true" #conDatee showSeconds="true" inline="true" placeholder="Set data." showTime="true"
+    selectionMode="range" [readonlyInput]="true"></p-calendar>
+  <br><br>
+
+  <button class="btn btn-success" type="reset" value="Add" (click)="onAddConnection()">Add</button>
+  <button class="btn btn-danger" (click)="changeAddState()">Cancel</button>
+
 </div>

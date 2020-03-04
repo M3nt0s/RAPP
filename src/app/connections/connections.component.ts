@@ -10,15 +10,13 @@ export class ConnectionsComponent implements OnInit {
   connections: Connection[];
   SelectedConnection: Connection;
   autoincrement: number;
-  increment: number;
 
   constructor() {
     this.autoincrement = 1;
     this.connections = [];
-    this.increment = 1;
   }
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
     this.storageFunction();
   }
 
@@ -29,8 +27,11 @@ export class ConnectionsComponent implements OnInit {
   storageFunction() {
     var data = JSON.parse(localStorage.getItem("connections"));
 
+    // localStorage.removeItem('employees');
+    // localStorage.clear();
+
     // if (data === null) {
-      // this.addConnection(new Connection(this.autoincrement, 'HP', '3550', 'Printer'));
+    // this.addConnection(new Connection(this.autoincrement, 'HP', '3550', 'Printer'));
     // this.addConnection(new Connection(this.autoincrement, 'Acer', 'Nitro N211453', 'Monitor'));
     // }
 
@@ -38,7 +39,9 @@ export class ConnectionsComponent implements OnInit {
       for (var i = 0; i < data.length; i++) {
 
         if ((i) === (data.length - 1)) {
-          this.autoincrement = (data[data.length - 1].id) + this.increment;
+          this.autoincrement = +(data[data.length - 1].id);
+
+          this.autoincrement++;
         }
         this.connections.push(data[i]);
       }
@@ -48,7 +51,6 @@ export class ConnectionsComponent implements OnInit {
   addConnection(connection: Connection) {
     this.connections.push(connection);
     this.storageSave();
-    location.reload();
     this.autoincrement++;
   }
 
@@ -56,7 +58,6 @@ export class ConnectionsComponent implements OnInit {
     const index = this.connections.findIndex(x => {
       return x.id == connection.id;
     });
-    console.log(connection.id);
     this.connections[index] = connection;
     this.storageSave();
   }
@@ -70,6 +71,5 @@ export class ConnectionsComponent implements OnInit {
       this.connections.splice(indexx, 1);
     }
     this.storageSave();
-    location.reload();
   }
 }

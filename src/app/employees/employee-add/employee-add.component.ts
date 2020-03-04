@@ -13,6 +13,7 @@ export class EmployeeAddComponent implements OnInit {
   @Input() emp: Employee;
   SelectedEmployee: Employee;
   @Input() autoincrement: number;
+  msgs: Object[];
 
   @ViewChild('nameInput') nameInputRef: ElementRef;
   @ViewChild('surInput') surInputRef: ElementRef;

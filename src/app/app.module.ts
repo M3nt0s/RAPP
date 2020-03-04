@@ -9,7 +9,7 @@ import { CalendarModule } from 'primeng/calendar';
 import { KeyFilterModule } from 'primeng/keyfilter';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DropdownModule } from 'primeng/dropdown';
-
+import { DatePipe } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { EmployeesComponent } from './employees/employees.component';
@@ -74,7 +74,8 @@ import { ViewerComponent } from './viewer/viewer.component';
     ConnectionItemComponent,
     ConnectionManagerComponent,
     ConnectionToolbarComponent,
-    ViewerComponent
+    ViewerComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -87,7 +88,7 @@ import { ViewerComponent } from './viewer/viewer.component';
     BrowserAnimationsModule,
     DropdownModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

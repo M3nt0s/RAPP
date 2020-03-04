@@ -1,3 +1,11 @@
-<a (click)='SelectedConnection()' href="#" onClick="return false;" class="list-group-item">
-    <h4>{{ con.id }} {{ con.deviceId }}</h4>
-</a>
+<div *ngFor="let dev of devices">
+  <div *ngFor="let emp of employees">
+    <div *ngIf="emp.id==con.employeeId">
+
+      <a *ngIf="dev.id == con.deviceId" (click)='SelectedConnection()' href="#" onClick="return false;"
+        class="list-group-item">
+        <h4> {{ con.employeeId}}.{{con.deviceId}} -- {{emp.name}} {{emp.surname}} -- {{dev.mark}} {{dev.model}}</h4>
+      </a>
+    </div>
+  </div>
+</div>
